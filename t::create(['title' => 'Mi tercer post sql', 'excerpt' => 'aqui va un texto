@@ -1,0 +1,23 @@
+[90m= [39m[34;4mIlluminate\Database\Eloquent\Collection[39;24m {#4279
+    [34mall[39m: [
+      [34;4mApp\Models\Post[39;24m {#4532
+        [34mid[39m: [35m1[39m,
+        [34mtitle[39m: "[32mMi primera publicación sql[39m",
+        [34mexcerpt[39m: "[32maquí va un texto largo[39m",
+        [34mbody[39m: "[32m<p>quí va un texto largo aquí va un texto largo aquí va un texto largo aquí va un texto largo aquí va un texto largo aquí va un texto largo aquí va un texto largo aquí va un texto largo aquí va un texto largo aquí va un texto largo</p>[39m",
+        [34mcreated_at[39m: "[32m2023-03-30 02:29:42[39m",
+        [34mupdated_at[39m: "[32m2023-03-30 02:56:59[39m",
+        [34mpublished_at[39m: [36mnull[39m,
+      },
+      [34;4mApp\Models\Post[39;24m {#4533
+        [34mid[39m: [35m2[39m,
+        [34mtitle[39m: "[32mMi segundo post sql[39m",
+        [34mexcerpt[39m: "[32maquí va un texto largo[39m",
+        [34mbody[39m: "[32m<p>quí va un texto largo aquí va un texto largo aquí va un texto largo aquí va un texto largo aquí va un texto largo aquí va un texto largo aquí va un texto largo aquí va un texto largo aquí va un texto largo aquí va un texto largo</p>[39m",
+        [34mcreated_at[39m: "[32m2023-03-30 02:29:42[39m",
+        [34mupdated_at[39m: "[32m2023-03-30 02:59:45[39m",
+        [34mpublished_at[39m: [36mnull[39m,
+      },
+    ],
+  }
+

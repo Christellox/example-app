@@ -12,7 +12,10 @@
                 </a>
             </h1>
             <p> 
-                <a href="/categories/{{ $post->category->slug }}">{{$post->category->name}} </a>
+           Por 
+            <a href="/authors/{{ $post->author->username }}"> {{ $post->author->name }} </a>
+            en 
+            <a href="/categories/{{ $post->category->slug }}">{{$post->category->name}} </a>
             </p>
             <div>
                 

@@ -1,29 +1,13 @@
 @extends ('layout')
+@include('posts-header')
 
 @section('content')
-    @foreach ($posts as $post)
-        <article>
-        
-            <h1>
-                
-                <a href="/posts/{{ $post->slug}}">
-
-                {{$post->title}}
-                </a>
-            </h1>
-            <p> 
-           Por 
-            <a href="/authors/{{ $post->author->username }}"> {{ $post->author->name }} </a>
-            en 
-            <a href="/categories/{{ $post->category->slug }}">{{$post->category->name}} </a>
-            </p>
-            <div>
-                
-                {{ $post->excerpt}}
-
-            </div>
-
-        </article>
-
-    @endforeach
+        @yield('posts-h')
+        <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
+            @if ($posts->count())
+                @include('posts-grid', $posts)
+            @else 
+                <p class="text-center"> No hay Post todavía, vuelve luego  </p>
+            @endif
+        </main>
 @endsection

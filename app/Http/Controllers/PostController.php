@@ -14,7 +14,7 @@ class PostController extends Controller
             //'posts' => Post::latest()->with('category', 'author')->get(),
             'posts' => Post::latest()
                 ->filter(request(['search', 'category', 'author']))
-                ->get(),
+                ->paginate(6)->withQueryString(),
                 'categories' => Category::all(), 
                 'currentCategory' => Category::firstWhere('slug', request('category'))
         ]);

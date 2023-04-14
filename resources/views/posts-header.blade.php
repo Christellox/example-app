@@ -33,7 +33,7 @@
                         
                         @foreach( $categories as $category)
 
-                            <a href="/categories/{{ $category->slug}}" 
+                            <a href="/?category={{ $category->slug}}" 
                             class="block text-left px-3 text-sm leading-6 
                             hover:bg-gray-300 focus:bg-gray-300 hover:text-white 
                             focus:text-white
@@ -74,7 +74,9 @@
                 <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
                     <form method="GET" action="#">
                         <input type="text" name="search" placeholder="Find something"
-                               class="bg-transparent placeholder-black font-semibold text-sm">
+                               class="bg-transparent placeholder-black font-semibold text-sm"
+                               value="{{ request('search') }}"
+                               >
                     </form>
                 </div>
             </div>

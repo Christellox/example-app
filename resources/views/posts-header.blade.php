@@ -1,4 +1,7 @@
 @section('posts-h')
+
+<link rel="stylesheet" href="{{asset('public/jquery-ui/jquery-ui.min.css')}}">
+
 <header class="max-w-xl mx-auto mt-20 text-center">
             <h1 class="text-4xl">
                 Latest <span class="text-blue-500">Laravel From Scratch</span> News
@@ -45,8 +48,27 @@
                                class="bg-transparent placeholder-black font-semibold text-sm"
                                value="{{ request('search') }}"
                                >
+                        
+                    </form>
+
+                    <form action="">
+                    <input type="text" id="buscador" placeholder="Encuentra un usuario"
+                               class="bg-transparent placeholder-black font-semibold text-sm"
+                              
+                               >
                     </form>
                 </div>
             </div>
         </header>
+
+    <script src="{{asset('public/jquery/jquery-3.7.0.js')}}"></script>
+    <script src="{{asset('public/jquery-ui/jquery-ui.min.js')}}"></script>
+    <script>
+        var usuarios = ['Christian', 'Alexander', 'Adrián', 'Brenda', 'Haans'];
+    
+        $('#buscador').autocomplete({
+            source: usuarios
+        });
+    </script>
+
 @endsection

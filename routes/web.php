@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
+use App\Http\Controllers\TypeaheadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,16 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
+
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
+
+Route::controller(TypeaheadController::class)->group(function(){
+
+    Route::get('demo-search', 'index');
+
+    Route::get('autocomplete', 'autocomplete')->name('autocomplete');
+
+});
 
 // Route::get('categories/{category:slug}', function (Category $category){
 //     return view('posts', [
@@ -36,5 +46,6 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 //         'categories' => Category::all()
 //     ]);
 // });
+
 
 

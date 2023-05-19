@@ -48,9 +48,16 @@ class Post extends Model
         )
         );
 
-        $query->when($filters['user'] ?? false, fn($query, $user) =>
-            $query->whereHas('author', fn($query) =>
-                $query->where('username', $user)
+        $query->when($filters['searchauthor'] ?? false, fn($query, $author) =>
+            $query->whereHas('user', fn($query) =>
+                $query->where('name', $author)
+        )
+        );
+
+        $query->when($filters['searchuser'] ?? false, fn($query, $search) =>
+        $query->where( fn($query) =>
+            $query->where('name', 'like', '%' . $search . '%')
+            
         )
         );
     }

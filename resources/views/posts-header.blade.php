@@ -1,6 +1,18 @@
 @section('posts-h')
 
-<link rel="stylesheet" href="{{asset('public/jquery-ui/jquery-ui.min.css')}}">
+<head>
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha256-IdfIcUlaMBNtk4Hjt0Y6WMMZyMU0P9PN/pH+DFzKxbI=" crossorigin="anonymous" />
+
+
+<!-- Script -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
 
 <header class="max-w-xl mx-auto mt-20 text-center">
             <h1 class="text-4xl">
@@ -51,24 +63,32 @@
                         
                     </form>
 
-                    <form action="">
-                    <input type="text" id="buscador" placeholder="Encuentra un usuario"
-                               class="bg-transparent placeholder-black font-semibold text-sm"
-                              
-                               >
-                    </form>
+                   
+                        @include('searchDemo')
+                    
                 </div>
             </div>
-        </header>
-
-    <script src="{{asset('public/jquery/jquery-3.7.0.js')}}"></script>
-    <script src="{{asset('public/jquery-ui/jquery-ui.min.js')}}"></script>
-    <script>
-        var usuarios = ['Christian', 'Alexander', 'Adrián', 'Brenda', 'Haans'];
+<!--     <script type="text/javascript">
+        // var usuarios = ['Christian', 'Alexander', 'Adrián', 'Brenda', 'Haans',
+        //                 'Christopher', 'Alejandra', 'Bruno', 'Pepe', 'Paco',
+        //                 'Mariana', 'María', 'Marisol'
+        //                 ];
     
-        $('#buscador').autocomplete({
-            source: usuarios
+        // $('#buscador').autocomplete({
+        //     source: usuarios
+        // });
+        var route = "{{ url('autocomplete-search') }}";
+        $('#buscador').typeahead({
+            source: function (query, process) {
+                return $.get(route, {query: query},
+                function (data) {
+                    return process(data);
+                });
+            }
         });
-    </script>
+    </script> -->
+</header>
+
+
 
 @endsection

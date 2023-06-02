@@ -42,7 +42,7 @@ class TypeaheadController extends Controller
  
      {
  
-         $data = User::select("name")
+         $data = User::select('name', 'email', 'username', 'id')//traer nombre y correo
  
                      ->where('name', 'LIKE', '%'. $request->get('query'). '%')
  

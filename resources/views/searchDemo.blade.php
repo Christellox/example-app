@@ -15,12 +15,26 @@
      
 
 <div class="container">
-<form method="GET" action="/">
-    <input class="typeahead form-control" 
-            id="search" 
+<form method="GET" action="/" name="f1" id="f1">
+        <label for="nombre">Nombre</label>
+        <input class="typeahead form-control" 
+            name="nombre"
+            id="nombre" 
             type="text"
-            value="{{ request('searchuser') }}" >
-
+            >
+        <label for="id">ID</label>
+        <input class="typeahead form-control" 
+            id="id" 
+            type="text"
+            >
+        <label for="correo">Correo</label>
+        <input class="typeahead form-control" 
+            id="correo" 
+            type="text">
+        <label for="username">Nombre de Usuario</label>
+        <input class="typeahead form-control" 
+            id="username" 
+            type="text">
 </from>
 </div>
 
@@ -29,15 +43,50 @@
 <script type="text/javascript">
 
 var path = "{{ route('autocomplete') }}";
-    $('#search').typeahead({
-            source: function (query, process) {
-                return $.get(path, {
-                    query: query
-                }, function (data) {
-                    return process(data);
-                });
-            }
-       });
+    // $('#search').typeahead({
+    //         source: function (query, process) {
+    //             return $.get(path, { query: query}, function (data) {return process(data);});
+    //         }
+    //    });
+    $('#nombre').typeahead({
+    //    source: function( request, response ) {
+    //         $.ajax({
+    //             url: "{{ route('autocomplete') }}",
+    //             dataType: "json",
+    //             data: {
+    //                 query: query
+    //             },
+    //             success: function( data ) {
+    //                 response( $.map( data, function( item ) {
+    //                     return {    name: item.name,
+    //                                 email: item.email
+    //                                 }   
+    //                 }));
+    //             }
+    //         });
+    // //     },
+    // select: function( event, ui ) {
+    //     $('#search').val('fff');
+    //         //$('#text').val(ui.item.email);
+
+    //    }
+        source: function (query, process) {
+                return $.get(path, { query: query}, function (data) {
+                    //console.log(data);
+                    return process(data);});
+            },
+        // onselect: function(obj) { $('#nombre').val(selection.name);},
+        updater: function(selection){
+            //document.f1.nombre.value = selection.name;
+            $('#nombre').val(selection.name);
+            $('#correo').val(selection.email);
+            $('#username').val(selection.username);
+            $('#id').val(selection.id);
+        console.log("Seleccionaste a: " + selection.name);
+        }
+
+   });
+
 </script>
 </body>
 </html>
